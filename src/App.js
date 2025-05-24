@@ -11,18 +11,22 @@ function App() {
   const [inputText, setInputText] = useState("");
 
   return (
-    <div className="min-h-screen flex bg-gray-100 text-sm">
-      <div className="w-[280px] border-r bg-white">
+    <div className="min-h-screen flex flex-col md:flex-row bg-gray-100 text-sm">
+      
+      {/* Inbox List (Sidebar) */}
+      <div className="w-full md:w-[280px] border-r bg-white">
         <InboxList />
       </div>
 
-      <div className="min-h-screen flex-1 flex flex-col border-r bg-white">
+      {/* Chat Window */}
+      <div className="flex-1 flex flex-col border-r bg-white min-h-[60vh]">
         <div className="flex-1 overflow-y-auto">
           <ChatWindow inputText={inputText} setInputText={setInputText} />
         </div>
       </div>
 
-      <div className="w-[440px] h-screen flex flex-col bg-gradient-to-b from-white via-gray-50 to-purple-100 shadow-inner">
+      {/* Copilot Panel */}
+      <div className="w-full md:w-[440px] flex flex-col bg-gradient-to-b from-white via-gray-50 to-purple-100 shadow-inner max-h-screen">
         <TabSwitcher />
         <div className="flex-1 flex flex-col overflow-hidden">
           <div className="flex-1 overflow-y-auto">
